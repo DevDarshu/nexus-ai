@@ -1,0 +1,25 @@
+<div
+    class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-indigo-200 transition-all cursor-pointer group flex flex-col h-48">
+    <div class="flex items-start justify-between mb-2">
+        <div class="p-1.5 bg-indigo-50 text-indigo-600 rounded-md">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+        </div>
+        <span class="text-xs text-slate-400">{{ date() | date:'shortTime' }}</span>
+    </div>
+    <h3 class="font-semibold text-slate-800 mb-2 group-hover:text-indigo-600 transition-colors">{{ title() }}</h3>
+    <p class="text-slate-500 text-sm line-clamp-3 leading-relaxed">
+        {{ extract() }}
+    </p>
+    <div class="mt-auto pt-4 flex items-center gap-2">
+        @for (tag of tags(); track tag) {
+        <span class="px-2 py-1 bg-slate-100 text-slate-600 rounded-md text-xs font-medium">#{{ tag }}</span>
+        }
+    </div>
+</div>
