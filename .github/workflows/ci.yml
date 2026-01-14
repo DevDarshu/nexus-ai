@@ -34,4 +34,11 @@ jobs:
       run: npm run test -- --watch=false
 
     - name: Build Application
-      run: npm run build
+      run: npm run build -- --base-href /nexus-ai/
+
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      if: github.ref == 'refs/heads/main'
+      with:
+        folder: dist/nexus-ai/browser
+
